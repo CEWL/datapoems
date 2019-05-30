@@ -5,16 +5,17 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
+
                 <div className="top-bar">
-                    
-                    <div className="title">
-                        .datapoems
-                    </div>
 
-                    <img src="./datapoemsLOGO.png" className="logo"/>
-           
-
+                <div className="title">
+                    .datapoems
                 </div>
+
+                <img src="./logo.png" className="logo"/>
+                       
+                </div>
+
                 <div className="container">
                 
                 </div>

@@ -28,22 +28,23 @@ body {
 // For desktop / screen size > 600px
 @media only screen and (min-width: 600px) {
     .top-bar {
+        display: flex;
         height: 4vw;
         width: 100vw;
         background-color: #02E2E8;
-        .logo {
-            padding-left: 10vw;
-            height: 4vw;
-            width: 4vw;
-            }
         .title {
-        padding-top: 1vw;
-        padding-bottom: 1vw;
-        padding-left: 1.5vw;
-        font-size: 2vw;
-        color: #FFFFFF;
-        }
-
+            padding-top: 1vw;
+            padding-bottom: 1vw;
+            padding-left: 1.5vw;
+            font-size: 2vw;
+            color: #FFFFFF;
+            }
+        .logo {
+            padding-top: 0.5vw;
+            padding-left: 0.35vw;
+            height: 3vw;
+            width: 3vw;
+            }
     }
 }
 
