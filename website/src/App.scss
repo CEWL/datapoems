@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+}
+.top-bar {
+    height: 5vw;
+    width: 100vw;
+    background-color: #02E2E8;
+    .title {
+        padding-top: 0.5vw;
+        padding-bottom: 0.5vw;
+        padding-left: 1.5vw;
+        font-size: 4vw;
+        color: #FFFFFF;
+    }
+    .logo {
+        padding-left: 20vw;
+        size: 1vw;
+    }
+}
+
+.container {
+    // grid
+    height: calc(100vh - 5vw);
+    background: #ffffff;
+    width: 100vw;
+}
+
+// For desktop / screen size > 600px
+@media only screen and (min-width: 600px) {
+    .top-bar {
+        height: 4vw;
+        width: 100vw;
+        background-color: #02E2E8;
+        .logo {
+            padding-left: 10vw;
+            height: 4vw;
+            width: 4vw;
+            }
+        .title {
+        padding-top: 1vw;
+        padding-bottom: 1vw;
+        padding-left: 1.5vw;
+        font-size: 2vw;
+        color: #FFFFFF;
+        }
+
+    }
+}
+
+
