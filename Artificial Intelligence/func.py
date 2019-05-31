@@ -23,44 +23,59 @@ def get_poem(max_characters, url):
         a += b
 
     a = process_poem(a)
-    print(a)
+    return a
 
-def process_poem(str):
+def process_poem(s):
     #Remove html formatting
-    str = str.replace("\xa0", '')
-    str = str.replace("\r", '')
-    str = str.replace("', '",'')
+    s = s.replace("\xa0", '')
+    s = s.replace("\r", '')
+    s = s.replace("', '",'')
 
     #Remove punctuation
-    str = str.replace(".", '')
-    str = str.replace(",", '')
-    str = str.replace("?", '')
-    str = str.replace("!", '')
-    str = str.replace("'", '')
-    str = str.replace('"', '')
-    str = str.replace(":", '')
-    str = str.replace(";", '')
-    str = str.replace("-", '')
-    str = str.replace("–", '')
-    str = str.replace("—", '')
-    str = str.replace("—", '')
-    str = str.replace("(", '')
-    str = str.replace(")", '')
-    str = str.replace("/", '')
-    str = str.replace("&", 'and')
+    s = s.replace(".", '')
+    s = s.replace(",", '')
+    s = s.replace("?", '')
+    s = s.replace("!", '')
+    s = s.replace("'", '')
+    s = s.replace('"', '')
+    s = s.replace(":", '')
+    s = s.replace(";", '')
+    s = s.replace("-", '')
+    s = s.replace("–", '')
+    s = s.replace("—", ' ')
+    s = s.replace("—", '')
+    s = s.replace("(", '')
+    s = s.replace(")", '')
+    s = s.replace("/", '')
+    s = s.replace("&", 'and')
+    s = s.replace("•", '')
+    s = s.replace("’", '')
+
+    #replace numbers
+    s = s.replace("1", 'one')
+    s = s.replace("2", 'two')
+    s = s.replace("3", 'three')
+    s = s.replace("4", 'four')
+    s = s.replace("5", 'five')
+    s = s.replace("6", 'six')
+    s = s.replace("7", 'seven')
+    s = s.replace("8", 'eight')
+    s = s.replace("9", 'nine')
+    s = s.replace("10", 'ten')
 
 
     #Remove extra spaces
-    while "  " in str:
-        str = str.replace("  ", " ")
+    while "  " in s:
+        s = s.replace("  ", " ")
 
     #Make lowercase
-    str = str.lower()
+    s = s.lower()
 
-    #Remove first character (will always be a space)
-    str = str[1:]
+    #Remove first and last characters (will always be spaces)
+    s = s[1:]
+    s=s[:-1]
 
-    return str
+    return s
 
 def get_themes(total_themes, url):
     opener = AppURLopener()
@@ -78,14 +93,14 @@ def get_themes(total_themes, url):
         if i in total_themes and i not in final_themes:
             final_themes.append(i)
 
-    print(final_themes)
+    return final_themes
 
 
-def process_themes(str):
-    str = str.replace(' ', 'placeholder')
-    str = str.replace(',', ' ')
+def process_themes(s):
+    s = s.replace(' ', 'placeholder')
+    s = s.replace(',', ' ')
 
-    list = str.split()
+    list = s.split()
 
     list = [e.replace('placeholder', ' ') for e in list]
     list = [e.lower() for e in list]
@@ -94,7 +109,34 @@ def process_themes(str):
     return list
 
 
+def convert_poem_binary(max_characters, poem):
+    binary = ''
+    for s in poem:
+        binary += convert_binary(s)
+
+    if len(poem) < max_characters:
+        excess = max_characters - len(poem)
+        binary += str(0)*27*excess
+
+    if len(binary) == 54000:
+        return binary
+    else:
+        return None
+
+def convert_binary(s):
+    if not s == " ":
+        ind = ord(s)-97
+        placeholder = (str(0)*ind) + str(1) + str(0)*(26-ind)
+        return placeholder
+    else:
+        return '000000000000000000000000001'
 
 
-get_poem(config.max_characters, 'https://www.poetryfoundation.org/poetrymagazine/poems/149694/apostrophe')
-get_themes(config.themes, 'https://www.poetryfoundation.org/poetrymagazine/poems/149694/apostrophe')
+def convert_themes(all_themes, poem_themes):
+    binary = ''
+    for i in range(len(all_themes)):
+        if all_themes[i] in poem_themes:
+            binary+= '1'
+        else:
+            binary+= '0'
+    return binary

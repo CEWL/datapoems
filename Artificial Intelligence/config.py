@@ -1,5 +1,5 @@
 max_characters = 2000
-themes = {'love', 'desire', 'heartache & loss', 'realistic & complicated', 'romantic love',
+themes = ['love', 'desire', 'heartache & loss', 'realistic & complicated', 'romantic love',
          'classic love', 'infatuation & crushes', 'unrequited love', 'break-ups & vexed love',
          'first love', 'nature', 'winter', 'spring', 'summer', 'fall', 'landscapes & pastorals',
          'weather', 'trees & flowers', 'stars, planets, heavens', 'seas, rivers, & streams',
@@ -17,4 +17,4 @@ themes = {'love', 'desire', 'heartache & loss', 'realistic & complicated', 'roma
          'sciences', 'reading & books', 'poetry & poets', 'humor & satire', 'music', 'theater & dance',
          'painting & sculpture', 'architecture & design', 'photography & film', 'language & linguistics',
          'mythology & folklore', 'ghosts & the supernatural', 'horror', 'heroes & patriotism',
-         'greek & roman mythology', 'fairy-tales & legends'}
+         'greek & roman mythology', 'fairy-tales & legends']
