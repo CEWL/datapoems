@@ -15,7 +15,7 @@ def get_poem(max_characters, url):
     html = response.read()
 
     s = BeautifulSoup(html, 'html.parser')
-    a=''
+    a = ''
     poem = s.find_all('div', attrs={'style': 'text-indent: -1em; padding-left: 1em;'})
     for text in poem:
         b = text.get_text()
