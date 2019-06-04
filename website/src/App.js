@@ -25,9 +25,8 @@ class App extends React.Component {
                         </form>
                     </div>
                     <button class="button">Enter</button>
-                    <img className="leftTriangle" src="./leftTriangle.png"/>
-                    <img className="rightTriangle" src="./rightTriangle.png"/>
-
+                    <img className="leftTriangle" src="./leftSideTriangle.png"/>
+                    <img className="rightTriangle" src="./rightSideTriangle.png"/>
                 </div>
             </div>
         );
