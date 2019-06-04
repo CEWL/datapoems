@@ -72,21 +72,21 @@ body {
                 margin-top: 5vw;
                 font-family: 'Raleway';
             }
-            .textBox {
+            .inputField {
                 grid-row: 2/3;
                 grid-column: 3/4;
                 justify-Self: center;
-                    .box{
-                        text-align: left;
-                        font-family: "Raleway";
-                        font-size: 1vw;
-                        color: #464040;
-                        width: 32vw;
-                        height: 22vw;
-                        border: 0.05vw;
-                        border-color: #B6B6B6;
-                        box-shadow: 0vw 0vw 0.5vw 0.05vw #B6B6B6;
-                    }
+                text-align: left;
+                font-family: "Raleway";
+                font-size: 1vw;
+                color: #B0ACAC;
+                width: 32vw;
+                height: 22vw;
+                border: 0.05vw;
+                outline: none;
+                resize: none;
+                border-color: #B6B6B6;
+                box-shadow: 0vw 0vw 0.5vw 0.05vw #B6B6B6;
             }
             .button {
                 grid-row: 3/4;
@@ -109,7 +109,7 @@ body {
                 outline: none;
             }
             .button:hover {
-                transform: scale(1.1);
+                transform: scale(1.2);
             }
             .leftTriangle {
                 grid-row: 3;

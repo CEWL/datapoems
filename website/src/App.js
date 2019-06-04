@@ -19,11 +19,7 @@ class App extends React.Component {
                 <div className="container">
                     <div className="sloganLineOne">Poem Theme</div>
                     <div className="sloganLineTwo">Detector</div>
-                    <div className="textBox">
-                        <form action="/action_page.php">
-                        <input className="box" type="text" name="userPoem" placeholder="Please Enter Your Poem Here..."></input>
-                        </form>
-                    </div>
+                    <textarea className="inputField" placeholder="Please Enter Your Poem Here..."></textarea>
                     <button className="button">Enter</button>
                     <img className="leftTriangle" src="./leftSideTriangle.png"/>
                     <img className="rightTriangle" src="./rightSideTriangle.png"/>
