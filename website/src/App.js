@@ -24,7 +24,7 @@ class App extends React.Component {
                         <input className="box" type="text" name="userPoem" placeholder="Please Enter Your Poem Here..."></input>
                         </form>
                     </div>
-                    <button class="button">Enter</button>
+                    <button className="button">Enter</button>
                     <img className="leftTriangle" src="./leftSideTriangle.png"/>
                     <img className="rightTriangle" src="./rightSideTriangle.png"/>
                 </div>
