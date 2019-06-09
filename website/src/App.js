@@ -10,7 +10,7 @@ class App extends React.Component {
         ? { filter: "blur(0.35vw)" }
         : undefined;
       const loadingIndicator = this.state.fadingOut ? (
-        <div style={loaderStyle}><div className="loader"/></div>
+        <div className="loader-style"></div>
       ) : null;
   
       return (
@@ -39,16 +39,6 @@ class App extends React.Component {
       );
     }
   }
-  
-  const loaderStyle = {
-    position: "absolute", // or position: "fixed"
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
-  };
+
 
 export default App;

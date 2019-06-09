@@ -124,7 +124,17 @@ body {
                 width: 5vw;
                 margin-top: 6.25vw;
             }
-            .loader {
+            .loader-style {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                border: 16px solid #f3f3f3;
+                border-radius: 50%;
+                border-top: 16px solid blue;
+                border-bottom: 16px solid blue;
+                width: 120px;
+                height: 120px;
+                transform: translate(-50%, -50%);
                 -webkit-animation: spin 2s linear infinite;
                 animation: spin 2s linear infinite;
               }
