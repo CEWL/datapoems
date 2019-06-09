@@ -26,6 +26,31 @@ body {
     width: 100vw;
 }
 
+.loader-style {
+    position: absolute;
+    left: 41.5vw;
+    top: 40vh;
+    border: 1.5vw solid #FFC200;
+    border-radius: 50%;
+    border-top: 1.5vw solid #02E2E8;
+    border-bottom: 1.5vw solid #02E2E8;
+    width: 10vw;
+    height: 10vw;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    justify-content: center;
+  }
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
 // For desktop / screen size > 600px
 @media only screen and (min-width: 600px) {
     .top-bar {
@@ -124,30 +149,6 @@ body {
                 width: 5vw;
                 margin-top: 6.25vw;
             }
-            .loader-style {
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                border: 16px solid #f3f3f3;
-                border-radius: 50%;
-                border-top: 16px solid blue;
-                border-bottom: 16px solid blue;
-                width: 120px;
-                height: 120px;
-                transform: translate(-50%, -50%);
-                -webkit-animation: spin 2s linear infinite;
-                animation: spin 2s linear infinite;
-              }
-              
-              @-webkit-keyframes spin {
-                0% { -webkit-transform: rotate(0deg); }
-                100% { -webkit-transform: rotate(360deg); }
-              }
-              
-              @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-              }
     }
 }
 
