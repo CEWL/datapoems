@@ -29,7 +29,7 @@ body {
 .loader-style {
     position: absolute;
     left: 41.5vw;
-    top: 40vh;
+    top: 38.5vh;
     border: 1.5vw solid #FFC200;
     border-radius: 50%;
     border-top: 1.5vw solid #02E2E8;
@@ -50,6 +50,110 @@ body {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+// For mobile / 600px > screen size > 0px
+@media only screen and (min-width: 0px) {
+    .top-bar {
+        display: flex;
+        height: 8vw;
+        width: 100vw;
+        background-color: #02E2E8;
+        .title {
+            padding-top: 2vw;
+            padding-bottom: 2vw;
+            padding-left: 1.5vw;
+            font-size: 4vw;
+            color: #FFFFFF;
+            font-family: 'Raleway';
+            }
+        .logo {
+            padding-top: 1vw;
+            padding-left: 1vw;
+            height: 6vw;
+            width: 6vw;
+            }
+    }
+    .container {
+        display: grid;
+        height: 100%;
+        width: 100%;
+        grid-template-columns: 4fr;
+        grid-template-rows: 1fr 2fr 1fr;
+
+        .sloganLineOne {
+            grid-row: 1/2;
+            grid-column: 1/2;
+            color: #464040;
+            font-size: 6vw;
+            justify-self: center;
+            margin-top: 4vw;
+            font-family: 'Raleway';
+        }
+        .sloganLineTwo {
+            grid-row: 1/2;
+            grid-column: 1/2;
+            color: #464040;
+            font-size: 6vw;
+            justify-self: center;
+            margin-top: 10vw;
+            font-family: 'Raleway';
+        }
+        .inputField {
+            grid-row: 2/3;
+            grid-column: 1/2;
+            justify-Self: center;
+            font-family: "Raleway";
+            font-size: 2vw;
+            color: #B0ACAC;
+            width: 56vw;
+            height: 40vw;
+            border: 0.05vw;
+            outline: none;
+            resize: none;
+            text-align: justify;
+            border-color: #B6B6B6;
+            box-shadow: 0vw 0vw 5vw 0.05vw #B6B6B6;
+        }
+        .button {
+            grid-row: 3/4;
+            grid-column: 1/2;
+            width: 16vw;
+            height: 10vw;
+            background-color: #FFC200;
+            border-radius: 6vw;
+            color: #FFFFFF;
+            text-align: center;
+            justify-self: center;
+            font-size: 3vw;
+            cursor: pointer;
+            font-family: 'Raleway';
+            border: none;
+        }
+        .button:focus {
+            outline: none;
+        }
+        .button:hover {
+            transform: scale(1.2);
+        }
+        .leftTriangle {
+            grid-row:3/4;
+            grid-column: 1/2;
+            justify-self: left;
+            height: 10vw;
+            width: 10vw;
+            margin-top: 16.9vw;
+        }
+        .rightTriangle {
+            grid-row:3/4;
+            grid-column: 1/2;
+            justify-self: right;
+            height: 10vw;
+            width: 10vw;
+            margin-top: 16.9vw;
+        }
+    }
+
+}
 
 // For desktop / screen size > 600px
 @media only screen and (min-width: 600px) {
