@@ -4,18 +4,23 @@ import React from "react";
 //import the scss file
 import "./App.scss";
 
+import Results from "./Results"
+import "./Results.scss";
+
 //extend the websitite called "App" as a subclass of the react component
 class App extends React.Component {
 
   //set the fadingOut state as false
   state = { fadingOut: false };
   
-  //set the fadingOut state to true if keyword fadeOut is used
-  fadeOut = () => this.setState({ fadingOut: true });
+  // method that sets the fading out to true
+  // arrow function
+  fadeOut = () => {
+    this.setState({ fadingOut: true });
+  }
 
   //render all of the following code for the webpage
   render() {
-    
     //create a style of bluring the page if fadingOut is true
     const contentStyle = this.state.fadingOut
       ? { filter: "blur(0.35vw)" }
@@ -23,7 +28,10 @@ class App extends React.Component {
 
     //create a loading circle if fadingOut is true
     const loadingIndicator = this.state.fadingOut ? (
+      <div>
       <div className="loader-style"></div>
+      <Results />
+      </div>
     ) : null;
 
     //return the code and display it to the webpage

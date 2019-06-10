@@ -1,0 +1,98 @@
+//body styling
+body {
+    margin: 0;
+}
+
+// For mobile / 600px > screen size > 0px
+@media only screen and (min-width: 0px) {
+    //styling the container sizes and creating grids
+    .pop-up {
+        display: grid;
+        height: 100%;
+        width: 100%;
+        grid-template-columns: 10fr;
+        grid-template-rows: 10fr;
+        //styling the first half of the slogan
+        .background-box {
+            justify-self: center;
+            background-color: #02E2E8;
+            width: 25vw;
+            height: 25vw;
+            border-radius: 1vw;
+            justify-self: center;
+            border: none;
+            //styling the button
+            .dismiss-button {
+                grid-row: 1;
+                grid-column: 1;
+                width: 6vw;
+                height: 4vw;
+                background-color: #FFC200;
+                border-radius: 2vw;
+                color: #FFFFFF;
+                text-align: center;
+                justify-self: center;
+                font-size: 1vw;
+                cursor: pointer;
+                font-family: 'Raleway';
+                margin-top: 15vw;
+                border: none;
+            }
+            //removing the outline when the button is clicked
+            .dismiss-button:focus {
+                outline: none;
+            }
+            //animating the button when it is hovered over
+            .dismiss-button:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+
+//customize styling for desktop devices (screen size > 600px)
+@media only screen and (min-width: 600px) {
+    .pop-up {
+        display: grid;
+        height: 100%;
+        width: 100%;
+        //styling the first half of the slogan
+        .background-box {
+            justify-self: center;
+            background-color: #02E2E8;
+            width: 25vw;
+            height: 25vw;
+            border-radius: 1vw;
+            justify-self: center;
+            border: none;
+            //styling the button
+            .dismiss-button {
+                grid-row: 1;
+                grid-column: 1;
+                width: 6vw;
+                height: 4vw;
+                background-color: #FFC200;
+                border-radius: 2vw;
+                color: #FFFFFF;
+                text-align: center;
+                justify-self: center;
+                font-size: 1vw;
+                cursor: pointer;
+                font-family: 'Raleway';
+                margin-top: 20vw;
+                border: none;
+            }
+            //removing the outline when the button is clicked
+            .dismiss-button:focus {
+                outline: none;
+            }
+            //animating the button when it is hovered over
+            .dismiss-button:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+
+
+
