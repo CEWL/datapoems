@@ -5,31 +5,23 @@ import React from "react";
 import "./Results.scss";
 
 //extend the websitite called "App" as a subclass of the react component
-class Results extends React.Component {
 
-    //set the fadingOut state as false
-  state = { fadingOut: false };
-  
-  // method that sets the fading out to true
-  // arrow function
-  fadeOut = () => {
-    this.setState({ fadingOut: true });
-  }
+class Results extends React.Component {
+    // method that sets the fading out to true
+    // arrow function
+    dismissClicked = () => {
+        this.props.dismissClicked();
+    }
 
     render() {
 
-        //create a style of bluring the page if fadingOut is true
-    const contentStyle = this.state.fadingOut
-    ? { filter: "blur(0.35vw)" }
-    : undefined;
+        //create a style of bluring the page if fadingOut is tru
 
         return (
-            <div className="Results" style={{ position: "relative" }}>
-                <div className="pop-up" style={contentStyle}>
-                    <div className="background-box" style={{flex: 1, flexDirection: 'column'}}>
-                        <button className="dismiss-button" onClick={this.fadeOut}>Dismiss</button>
-                    </div>
-                </div>
+            <div className="background-box">
+                <div className="results-header">Themes:</div>
+                <div className="results-field">Theme 1, Theme 2, Theme 3, Theme 4, Theme 5</div>
+                <button className="dismiss-button" onClick={this.dismissClicked}>Dismiss</button>
             </div>
         );
     }

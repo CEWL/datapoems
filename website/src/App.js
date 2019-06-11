@@ -11,28 +11,36 @@ import "./Results.scss";
 class App extends React.Component {
 
   //set the fadingOut state as false
-  state = { fadingOut: false };
-  
+  state = { 
+    isBlurred: false,
+    isLoadingAnimation: false,
+  };
+
   // method that sets the fading out to true
   // arrow function
-  fadeOut = () => {
-    this.setState({ fadingOut: true });
+  setBlur = () => {
+    this.setState({ isBlurred: true, isLoadingAnimation:true },
+        ()=>{
+          setTimeout(() => {
+            this.setState({isLoadingAnimation: false})
+          },2500);
+        }
+      );
+    
+
+  }
+
+  dismissClicked = () => {
+    this.setState({ isBlurred: false });
   }
 
   //render all of the following code for the webpage
   render() {
+
     //create a style of bluring the page if fadingOut is true
-    const contentStyle = this.state.fadingOut
+    const contentStyle = this.state.isBlurred
       ? { filter: "blur(0.35vw)" }
       : undefined;
-
-    //create a loading circle if fadingOut is true
-    const loadingIndicator = this.state.fadingOut ? (
-      <div>
-      <div className="loader-style"></div>
-      <Results />
-      </div>
-    ) : null;
 
     //return the code and display it to the webpage
     return (
@@ -50,15 +58,24 @@ class App extends React.Component {
               className="input-field"
               placeholder="Please Enter Your Poem Here..."
             />
-            <button className="button" onClick={this.fadeOut}>
+            <button className="button" onClick={this.setBlur}>
               Enter
             </button>
             <img className="left-triangle" src="./leftSideTriangle.png" />
             <img className="right-triangle" src="./rightSideTriangle.png" />
           </div>
         </div>
-        {loadingIndicator}
-      </div>
+        {
+          (this.state.isBlurred && !this.state.isLoadingAnimation) ?
+          <Results dismissClicked = {this.dismissClicked}/>: null
+        }
+        {
+          this.state.isLoadingAnimation ? 
+            <div className="loader-style"></div>
+            :
+            ""
+        }
+        </div>
     );
   }
 }
