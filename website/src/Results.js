@@ -16,11 +16,10 @@ class Results extends React.Component {
     render() {
 
         //create a style of bluring the page if fadingOut is tru
-
         return (
             <div className="background-box">
                 <div className="results-header">Themes:</div>
-                <div className="results-field">Theme 1, Theme 2, Theme 3, Theme 4, Theme 5</div>
+                <div className="results-field">{this.props.themes}</div>
                 <button className="dismiss-button" onClick={this.dismissClicked}>Dismiss</button>
             </div>
         );

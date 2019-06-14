@@ -7,13 +7,16 @@ import "./App.scss";
 import Results from "./Results"
 import "./Results.scss";
 
-//extend the websitite called "App" as a subclass of the react component
+//extend the website called "App" as a subclass of the react component
 class App extends React.Component {
 
-  //set the fadingOut state as false
-  state = { 
+  //set the states
+  state = {
     isBlurred: false,
     isLoadingAnimation: false,
+    inputField: "",
+    results: "",
+    textField: ""
   };
 
   // method that sets the fading out to true
@@ -21,12 +24,15 @@ class App extends React.Component {
   setBlur = () => {
     this.setState({ isBlurred: true, isLoadingAnimation:true },
         ()=>{
-          setTimeout(() => {
-            this.setState({isLoadingAnimation: false})
-          },2500);
+          fetch("/poem", {
+            method: "POST",
+            body: this.state.textField
+          }).then((response) => response.text()).then((response) => {
+            this.setState({isLoadingAnimation: false, results: response})
+          })
         }
       );
-    
+
 
   }
 
@@ -57,6 +63,8 @@ class App extends React.Component {
             <textarea
               className="input-field"
               placeholder="Please Enter Your Poem Here..."
+              onChange={this.onTextFieldChange}
+              value={this.state.inputField}
             />
             <button className="button" onClick={this.setBlur}>
               Enter
@@ -67,16 +75,22 @@ class App extends React.Component {
         </div>
         {
           (this.state.isBlurred && !this.state.isLoadingAnimation) ?
-          <Results dismissClicked = {this.dismissClicked}/>: null
+          <Results dismissClicked = {this.dismissClicked} themes = {this.state.results}/>: null
         }
         {
-          this.state.isLoadingAnimation ? 
+          this.state.isLoadingAnimation ?
             <div className="loader-style"></div>
             :
             ""
         }
         </div>
     );
+  }
+  //Change the text field to what the user enters
+  onTextFieldChange = (e) => {
+    this.setState({
+      inputField: e.target.value
+    });
   }
 }
 
