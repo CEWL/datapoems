@@ -1,3 +1,7 @@
+''' Caleb Lammers June 5th
+This file is used to create a database of poems with their themes '''
+
+#Import needed libraries
 from selenium import webdriver
 import func
 import numpy as np
@@ -6,19 +10,33 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
-poem_data = np.load('poem_data.npy')
-poem_data = poem_data.tolist()
-themes_data = np.load('themes_data.npy')
-themes_data = themes_data.tolist()
+#Set whether it is the first time running the scraper
+first_time = False
+
+#If it is the first time, create poem data and themes data arrays
+if first_time:
+    poem_data = []
+    themes_data = []
+
+#If it is not the first time, load the poem data and themes data arrays
+if not first_time:
+    poem_data = np.load('poem_data.npy')
+    poem_data = poem_data.tolist()
+    themes_data = np.load('themes_data.npy')
+    themes_data = themes_data.tolist()
 
 
+#Function to get a list of URLs which have poems given a url on the browse page (because these pages use react, must use a different library)
 def get_poem_urls(url):
+    #Open the URL using the chrome webdriver
     browser = webdriver.Chrome()
     browser.get(url)
+
+    #From the open page, get the html text
     innerHTML = browser.execute_script("return document.body.innerHTML")
 
-    s = BeautifulSoup(innerHTML, "lxml")
-    list_urls_string = s.find_all('h2', attrs={'class': 'c-hdgSans c-hdgSans_2'})
+    parsed_text = BeautifulSoup(innerHTML, "lxml")
+    list_urls_string = parsed_text.find_all('h2', attrs={'class': 'c-hdgSans c-hdgSans_2'})
 
     list_string = str(list_urls_string).split()
     list_urls = []

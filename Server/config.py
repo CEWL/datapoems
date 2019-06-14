@@ -1,3 +1,7 @@
+''' Caleb Lammers May 24th
+This file includes the maximum characters accepted for a poem and the list of accepted themes '''
+
+#Set max characters to 2000 and make list of accepted themes
 max_characters = 2000
 themes = ['Love', 'Desire', 'Heartache & Loss', 'Realistic & Complicated', 'Romantic Love',
          'Classic Love', 'Infatuation & Crushes', 'Unrequited Love', 'Break-ups & Vexed Love',

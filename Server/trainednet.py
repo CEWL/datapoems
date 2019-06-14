@@ -29,9 +29,9 @@ def make_prediction(poem):
     text_list = []
     entry = []
 
-    print(poem)
+
     poem = func.process_poem(poem, True)
-    #print(poem)
+    print(poem)
     poem_binary = func.convert_poem_binary(config.max_characters, poem)
 
     for digit in poem_binary:
@@ -50,5 +50,5 @@ def make_prediction(poem):
         themes_scores.append((themes[i], round(100*score, 2)))
     themes_scores.sort(key=lambda themes_scores: themes_scores[1], reverse=True)
 
-    output = [themes_scores[0][0], themes_scores[1][0], themes_scores[2][0], themes_scores[3][0], themes_scores[4][0]]
-    return output
+    output_str = "1." + str(themes_scores[0][0]) + "\n2." + str(themes_scores[1][0]) + "\n3." + str(themes_scores[2][0]) + "\n4." + str(themes_scores[3][0]) + "\n5." + str(themes_scores[4][0])
+    return output_str
